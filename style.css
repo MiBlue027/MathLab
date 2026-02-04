@@ -1,0 +1,207 @@
+/* =========================
+   BASE
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #eef2ff, #ffffff);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================
+   PAGE LAYOUT
+========================= */
+
+.app {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+    flex: 1;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title h1 {
+    font-size: 42px;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.title p {
+    font-size: 21px;
+    color: #64748b;
+}
+
+/* =========================
+   GRID SYSTEM
+========================= */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    background: rgba(255,255,255,0.9);
+    border-radius: 18px;
+    padding: 22px 22px 26px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border: 1px solid #e5e7eb;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    transition: 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+            135deg,
+            rgba(59,130,246,0.08),
+            rgba(99,102,241,0.08)
+    );
+    opacity: 0;
+    transition: 0.25s;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(59,130,246,0.18);
+}
+
+/* =========================
+   CARD CONTENT
+========================= */
+
+.card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #475569;
+    margin-bottom: 18px;
+    position: relative;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.card a {
+    text-decoration: none;
+    text-align: center;
+
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+
+    padding: 10px 14px;
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.25s;
+    position: relative;
+}
+
+.card a:hover {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    box-shadow: 0 6px 16px rgba(37,99,235,0.4);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    width: 100%;
+    margin-top: auto;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: #e5e7eb;
+    padding: 22px 15px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.footer .status {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+    color: #93c5fd;
+}
+
+.footer .copy {
+    font-size: 13px;
+    color: #cbd5e1;
+}
+
+.footer .copy a {
+    color: #60a5fa;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.footer .copy a:hover {
+    color: #93c5fd;
+    text-decoration: underline;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px){
+
+    .title h1 {
+        font-size: 32px;
+    }
+
+    .title p {
+        font-size: 14px;
+    }
+
+}

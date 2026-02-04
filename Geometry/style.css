@@ -1,0 +1,209 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f1f1f8, #ffffff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+.container {
+    background: #ffffff;
+    padding: 28px 30px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.container h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 24px;
+}
+
+.labelResult {
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+}
+
+
+/* =========================
+   GRID / TABLE
+========================= */
+
+.commonGrid {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 18px;
+}
+
+.commonGrid tr {
+    vertical-align: middle;
+}
+
+.commonGrid td {
+    width: 50%;
+    vertical-align: middle;
+    padding: 0 6px;
+}
+
+.commonGrid td:first-child {
+    padding-left: 0;
+}
+
+.commonGrid td:last-child {
+    padding-right: 0;
+}
+
+.commonGrid .inputBox {
+    margin-bottom: 0;
+}
+
+.commonGrid .inputBox input,
+.commonGrid .selection {
+    height: 42px;
+}
+
+/* =========================
+   INPUT GROUP
+========================= */
+
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.inputBox label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+}
+
+
+/* Input Field */
+.inputBox input {
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1.5px solid #cbd5f5;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+
+.inputBox input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59,130,246,0.25);
+}
+
+
+/* =========================
+   SELECT DROPDOWN
+========================= */
+
+.selection {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1.5px solid #cbd5f5;
+    background: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.selection:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59,130,246,0.25);
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.commonButton {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    border: none;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.commonButton:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(59,130,246,0.4);
+}
+
+.commonButton:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+
+/* =========================
+   RESULT BOX
+========================= */
+
+.result {
+    margin-top: 22px;
+    padding: 16px 18px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.detailResult {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+}
+
+.detailResult:not(:last-child) {
+    border-bottom: 1px dashed #cbd5f5;
+}
+
+
+/* Result Value */
+.detailResult span:last-child {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 420px) {
+
+    .container {
+        width: 92%;
+        padding: 22px;
+    }
+
+    .container h1 {
+        font-size: 22px;
+    }
+}

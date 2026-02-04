@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Geometry 2D - Rectangle </title>
+    <link rel="stylesheet" href="./../../style.css">
+    <script src="./../../UnitConverter.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1> Rectangle </h1>
+        <table class="commonGrid">
+            <tr>
+                <td>
+                    <div class="inputBox">
+                        <label for="side"> Side Input </label>
+                        <input type="number" id="side" min="1">
+                    </div>
+                </td>
+                <td>
+                    <div class="inputBox">
+                        <label for="unitSource"> Unit </label>
+                        <select id="unitSource" class="selection">
+                            <option value="mm">Millimeter (mm)</option>
+                            <option value="cm">Centimeter (cm)</option>
+                            <option value="m" selected>Meter (m)</option>
+                            <option value="km">Kilometer (km)</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div class="inputBox">
+            <label for="unitTarget"> Unit Result </label>
+            <select id="unitTarget" class="selection">
+                <option value="mm">Millimeter (mm)</option>
+                <option value="cm">Centimeter (cm)</option>
+                <option value="m" selected>Meter (m)</option>
+                <option value="km">Kilometer (km)</option>
+            </select>
+        </div>
+        <button onclick="Calculate()" class="commonButton"> Calculate </button>
+        <div class="result">
+            <div class="detailResult">
+                <span>
+                    <label class="labelResult"> Area: </label>
+                </span>
+                <span id="areaResult"></span>
+            </div>
+            <div class="detailResult">
+                <span>
+                    <label class="labelResult"> Perimeter: </label>
+                </span>
+                <span id="perimeterResult"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function Calculate () {
+            const unitSource = document.getElementById("unitSource").value;
+            const unitTarget = document.getElementById("unitTarget").value;
+            const originSideValue = document.getElementById("side").value;
+            const convertedSideValue = UnitConverter(originSideValue, unitSource, unitTarget);
+            if (!IsValidSide(convertedSideValue)) {
+                return;
+            }
+            CalculateArea(convertedSideValue, unitSource, unitTarget);
+            CalculatePerimeter(convertedSideValue, unitSource, unitTarget);
+            ClearInput();
+        }
+        function IsValidSide(side) {
+            if (side === "" || side <= 0) {
+                alert("Please input valid side value");
+                return false;
+            }
+            return true;
+        }
+        function ClearInput(){
+            document.getElementById("side").value = "";
+        }
+        function CalculateArea (side, unitSource, unitTarget) {
+            const area = side * side;
+            document.getElementById("areaResult").innerText = area + unitTarget + "²";
+        }
+
+        function CalculatePerimeter (side, unitSource, unitTarget) {
+            const perimeter = side * 4;
+            document.getElementById("perimeterResult").innerText = perimeter + unitTarget;
+        }
+    </script>
+</body>
+</html>
